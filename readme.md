@@ -28,4 +28,4 @@ We needed it for one of our upcoming applications. And we couldn't find any alte
 
 ##How do I use it!!
 
-Please read our guide in our wiki.
+<a href="https://github.com/Studio182/Studio-History/wiki/How-to-use-Studio-History">Click here to read our guide in our wiki.</a>
