@@ -2,7 +2,7 @@
  * Studio History
  *
  * Copyright 2012 Studio 182
- * http://github.com/Studio182/StudioHistory/
+ * http://github.com/Studio182/Studio-History/
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
