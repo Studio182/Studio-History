@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<script src="../StudioHistory.js"></script>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+		//
+		// Initialize the StudioHistory Class
+		//
+				
+		var history = new StudioHistory();
+		
+		//
+		// Create a Undo Function (with validation)
+		//
+				
+		function undo() {
+			
+			// Get Undo Value
+			var undoText = history.getUndoItem();
+			
+			// If undo value is false, that means nothing was found.
+			// If not, set the textarea value to the undo value
+			
+			if(undoText != false) {
+				$('#one').val(undoText);
+			}			
+		}	
+		
+		//
+		// Create a Redo Function (with validation)
+		//
+		
+		function redo() {
+		
+			// Get Redo Value
+			var redoText = history.getRedoItem();
+			
+			
+			// If redo value is false, that means nothing was found.
+			// If not, set the textarea value to the undo value			
+			if(redoText != false) {
+				$('#one').val(redoText);
+			}
+		}
+		
+		//
+		// Create the Set Function. This sets a history item.
+		// This can be run manually or automatically.
+		// For the sake of the demo, well make it manaul
+		//
+		
+		function set() {
+			// Set a history item from the value of the textarea
+			history.setHistoryItem($('#one').val());
+		}
+		
+		//
+		// Create export function, this exports the history (with all revisions)
+		// to be used at a later time.
+		// 
+		
+		function exportdata() {
+			//Grab export data, set the textarea#two with that data
+			$('#two').val(history.exportData());
+		}
+		
+		//
+		// Create import function, this imports exported data.
+		//
+		
+		function importdata() {
+			//Import data (Grab data from textarea#two)
+			history.importData($('#two').val());
+			//Set textarea#one to the new history_val
+			$('#one').val(history.history_val);
+		}
+		
+		</script>
+	</head>
+	<body>		
+			<h1>Studio History</h1>
+			
+			<textarea id="one" placeholder="Enter Text Here!"></textarea>
+			<input type="button" value="Set Item" onclick="set()"/>
+			<input type="button" value="Undo" onclick="undo()"/>
+			<input type="button" value="Redo" onclick="redo()"/>
+			
+			<br><br>
+			
+			<h1>Import/Export</h1>
+			
+			<textarea id="two"></textarea>
+			
+			<input type="button" value="Export Data" onclick="exportdata()"/>
+			<input type="button" value="Import Data" onclick="importdata()"/>
+	</body>
+
+</html>
